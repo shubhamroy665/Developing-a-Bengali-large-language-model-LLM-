@@ -1,6 +1,6 @@
 # Original Transformer for Bengali Translation [Work in Progress]
 
-I come from a developing country named Bangladesh. Our mother tongue is Bengali. In this project, my plan is to translate different languages to Bengali. I am fascinated by transformer architecture. I have implemented the whole architecture from scratch using PyTorch. However, during machine translation, I am using PyTorch built-in transformer which is better optimized for use. I also have plans to deploy the model after the project. 
+Our mother tongue is Bengali. In this project, my plan is to learn Transformer by doing hands on code from scratch. I am fascinated by transformer architecture. I have implemented the whole architecture from scratch using PyTorch. However, during machine translation, I am using PyTorch built-in transformer which is better optimized for use. I also have plans to deploy the model after the project. 
 
 ## Transformer
 
@@ -72,17 +72,13 @@ Steps: <br/>
 - Get the softmax value of the scaled product. Softmax maximizes the higher scores and depresses the lower scores and normalizes the scores so they’re all positive and add up to 1.
 - Multiply the softmax output with V. The intuition here is to keep intact the values of the word(s) we want to focus on, and drown-out irrelevant words.
 
-#### 3.2. Residual Connection
-
-We can notice skip-connections in many places of the architecture. This is to retain some of the previous information as discussed in [Original ResNet Paper](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf).
-
-#### 3.3. Layer Normalization
+#### 3.2. Layer Normalization
 
 Instead of batch normalization, we can see layer normalization. It directly estimates the normalization statistics from the summed inputs to the neurons within a hidden layer so the normalization does not introduce any new dependencies between training cases. For example, dependency on mini-batch size and so on. In short, it takes an average of every single example. You can know more about this in the following link. 
 
 - [Layer Normalization Explanation by Papers with Code](https://paperswithcode.com/method/layer-normalization)
 
-#### 3.4. Pointwise Feed Forward
+#### 3.3. Pointwise Feed Forward
 
 We feed the output from Layer Normalization to a Linear Layer with ReLU activation function. Then again pass it to a Linear layer and a Dropout Layer. In between two Linear Layers. We expand the size once and the again move back to original embedding size. This returns us with encoder representation which can be used for many downstream task but that's not the domain of our project for now.
 
@@ -118,7 +114,7 @@ Same as Encoder Block.
 
 ### 6. Linear Classifier
 
-There we have a Linear Layer and a Softmax Layer. The output size of equal to the vocab size where the softmax classifier maximizes the probability of the next work to come and depress others. After training, during inference time, we use different decoding techniques like greedy decoding or beam search.
+There we have a Softmax Layer. The output size of equal to the vocab size where the softmax classifier maximizes the probability of the next work to come and depress others. After training, during inference time, we use different decoding techniques like greedy decoding or beam search.
 
 ## Implementing transformer from Scratch
 
