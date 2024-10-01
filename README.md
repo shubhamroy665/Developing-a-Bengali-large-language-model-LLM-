@@ -1,4 +1,4 @@
-# Developing-a-Bengali-large-language-model-LLM [Work in Progress]
+# Developing-a-Bengali-large-language-model-LLM from scratch [Work in Progress]
 
 Our mother tongue is Bengali. In this project, my plan is to learn Transformer by doing hands on code from scratch. I am fascinated by transformer architecture. I have implemented the whole architecture from scratch using PyTorch. However, during machine translation, I am using PyTorch built-in transformer which is better optimized for use. I also have plans to deploy the model after the project. 
 
